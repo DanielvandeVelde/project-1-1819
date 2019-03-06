@@ -1,14 +1,113 @@
 <html>
-<head>
-  <style>
-  html, body { width: 100%; height: 100%; background: #000; }
-  body { margin: 0; overflow: hidden; }
-  canvas { width: 500px; height: 500px; }
-  </style>
-</head>
-<body>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/88/three.min.js'></script>
-  <script src='https://threejs.org/examples/js/controls/TrackballControls.js'></script>
-  <script src="./src/js/script.js"></script>
-</body>
+  <head>
+    <link rel="stylesheet" type="text/css" href="src/css/reset.css" />
+    <!-- https://css-tricks.com/why-isnt-it-style-src/ -->
+    <link rel="stylesheet" type="text/css" href="src/css/styles.css" />
+    <title>oba trophy</title>
+  </head>
+  <body>
+    <div class="confetti-land">
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+      <div class="confetti"></div>
+    </div>
+    <main>
+      <h1>Welk boek heb je uitgelezen?</h1>
+      <form id="form">
+        <ul>
+          <li>
+            <label for="namefield">Naam</label>
+            <input type="text" id="namefield" name="namefield" id="namefield" maxlength="12" required />
+            <span>Alleen je voornaam is het makkelijkst</span>
+          </li>
+          <li>
+            <label for="bookfield">Boek</label>
+            <input type="text" id="bookfield" name="bookfield" maxlength="20" required/>
+            <span>ISBN of de barcode werkt het best</span>
+          </li>
+          <li><input type="submit" id="go" value="Wat win ik?" /></li>
+        </ul>
+      </form>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/88/three.min.js"></script>
+    <script src="https://threejs.org/examples/js/controls/TrackballControls.js"></script>
+    <script type="module" src="src/js/script.js"></script>
+  </body>
 </html>
