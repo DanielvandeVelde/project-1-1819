@@ -125,13 +125,14 @@ function start3d(naam = parametertje) {
   };
 
   function addTexture(info = naam) {
-
+		//Font, taken from three.js example fonts
 		var textloader = new THREE.FontLoader();
 		textloader.load('./src/font/helvetiker_regular.typeface.json', function (font) {
 			var textcolor = new THREE.MeshPhongMaterial({
-				color: 0x664303
+				color: 0x775414
 			})
 
+			//The name of our winner
 			var nameGeo = new THREE.TextGeometry( info.name, {
 				font: font,
 				size: 25,
@@ -153,6 +154,7 @@ function start3d(naam = parametertje) {
 			nameMesh.position.x = -(nameBox.max.x/2)
 			group.add(nameMesh)
 
+			//Book title on the front
 			var titleGeo = new THREE.TextGeometry( info.title, {
 				font: font,
 				size: 25,
@@ -174,6 +176,7 @@ function start3d(naam = parametertje) {
 			titleMesh.position.x = -(titleBox.max.x/2)
 			group.add(titleMesh)
 
+			//Date on the back
 			var todayGeo = new THREE.TextGeometry( info.today, {
 				font: font,
 				size: 25,
@@ -195,8 +198,52 @@ function start3d(naam = parametertje) {
 			var todayBox = new THREE.Box3().setFromObject( todayMesh );
 			todayMesh.position.x = -(todayBox.min.x/2)
 			group.add(todayMesh)
+
+			//creating oba logo
+			var logo = new THREE.Object3D();
+
+			var ob = "ob";
+			var obGeo = new THREE.TextGeometry( ob, {
+				font: font,
+				size: 20,
+				height: 12.5,
+				curveSegments: 15,
+				bevelEnabled: true,
+				bevelThickness: 1,
+				bevelSize: 1,
+				bevelSegments: 6
+			});
+
+			var obMesh = new THREE.Mesh(obGeo, textcolor);
+			obMesh.scale.set(0.05,0.05,0.05)
+
+			var a = "a";
+			var aGeo = new THREE.TextGeometry( a, {
+				font: font,
+				size: 20,
+				height: 12.5,
+				curveSegments: 15,
+				bevelEnabled: true,
+				bevelThickness: 1,
+				bevelSize: 1,
+				bevelSegments: 6
+			});
+
+			var aMesh = new THREE.Mesh(aGeo, textcolor);
+			aMesh.scale.set(0.05,0.05,0.05)
+			obMesh.position.x = -1.25;
+			aMesh.position.x = +1.25
+			aMesh.rotation.z = +1.6;
+			logo.add(obMesh)
+			logo.add(aMesh)
+			logo.rotation.x = +1.6;
+			logo.position.z = +3;
+			logo.position.y = -1.25;
+
+			group.add(logo)
 		});
 
+		//Box for trophy to rest on
     var material = new THREE.MeshPhongMaterial({
         color: 0x783F04,
         emissive: 0x2a0000,
@@ -204,8 +251,9 @@ function start3d(naam = parametertje) {
       });
     var geometry = new THREE.BoxGeometry(3.5, 3.5, 2);
     cube = new THREE.Mesh(geometry, material);
-    var trophyLoader = new THREE.OBJLoader();
 
+		//Trophy loader
+		var trophyLoader = new THREE.OBJLoader();
     // load a resource
     trophyLoader.load(
       // resource URL
@@ -215,9 +263,9 @@ function start3d(naam = parametertje) {
         object.scale.set(0.1, 0.1, 0.1);
         var shine = new THREE.MeshStandardMaterial({
           color: 0x664303,
-          emissive: 0x664303,
+          emissive: 0x775414,
           roughness: 0.25,
-          metalness: 0.5,
+          metalness: 0.75,
           flatShading: 1,
           wireframeLinewidth: 1,
           vertexColors: THREE.NoColors,

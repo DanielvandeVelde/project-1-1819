@@ -14,11 +14,9 @@ Deze is te printen via de 3D printer aanwezig in de OBA.
 - [x] Make it fun to wait
 - [x] Replace cube with a trophy (add colors etc. as well)
 - [x] Make exporting possible in a ready-to-print format (.stl)
-- [ ] Fix the printing proportions (probably a .obj error)
-- [ ] Extruding text so it's print-ready even without texture.
+- [x] Fix the printing proportions (probably a .obj error)
+- [x] Extruding text so it's print-ready even without texture.
 - [ ] Small SVG animation on frontpage and final page to spice things up.
-
-
 
 ## Sources
 [OBA-Wrapper](https://github.com/maanlamp/OBA-wrapper)
