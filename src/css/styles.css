@@ -8,23 +8,6 @@ body {
   overflow: hidden;
 }
 
-main {
-  position: relative;
-  z-index: 3;
-  margin-top: -200vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  animation-name: slide-in;
-  animation-delay: 1s;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-  background: #fff url("../img/spinner.svg") no-repeat center center;
-  border-radius: 10px;
-  padding: 50px 50px 25px;
-}
-
 body::before {
   background-color: #f6f6f6;
   background-image: url("../img/logo.png");
@@ -43,6 +26,38 @@ body::before {
   animation-name: fade-in;
   animation-duration: 2s;
   animation-fill-mode: forwards;
+}
+
+main {
+  position: relative;
+  z-index: 3;
+  margin-top: -200vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  animation-name: slide-in;
+  animation-delay: 1s;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+  background: #fff url("../img/spinner.svg") no-repeat center center;
+  border-radius: 10px;
+  padding: 50px 50px 25px;
+}
+
+body::after {
+  content: '🏆';
+  font-size: 10vh;
+  position: absolute;
+  bottom: 0;
+  left: 70vw;
+  opacity: 0;
+  animation-name: fall;
+  animation-delay: 4s;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+  z-index: 2;
 }
 
 h1 {
@@ -138,6 +153,44 @@ form input[type="submit"]:hover {
   to {
     margin-top: 0;
   }
+}
+
+@keyframes fall {
+    0% {
+              transform: translateY(-110vh);
+              animation-timing-function: ease-in;
+      opacity: 0;
+    }
+    38% {
+              transform: translateY(0);
+              animation-timing-function: ease-out;
+      opacity: 1;
+    }
+    55% {
+              transform: translateY(-20vh);
+              animation-timing-function: ease-in;
+    }
+    72% {
+              transform: translateY(0);
+              animation-timing-function: ease-out;
+    }
+    81% {
+              transform: translateY(-5vh);
+              animation-timing-function: ease-in;
+    }
+    90% {
+              transform: translateY(0);
+              animation-timing-function: ease-out;
+    }
+    95% {
+              transform: translateY(-1vh);
+              animation-timing-function: ease-in;
+    }
+    100% {
+              transform: translateY(0);
+              animation-timing-function: ease-out;
+              opacity: 1;
+    }
 }
 
 canvas {
