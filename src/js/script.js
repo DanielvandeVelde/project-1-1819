@@ -171,10 +171,10 @@ function addTexture(name = naam) {
 ];
   var geometry = new THREE.BoxGeometry( 3.5, 3.5, 2 );
   cube = new THREE.Mesh(geometry, material);
-	var loader = new THREE.OBJLoader();
+	var trophyLoader = new THREE.OBJLoader();
 
 	// load a resource
-	loader.load(
+	trophyLoader.load(
 		// resource URL
 		'./src/obj/tc_fea Trophy Cup 5/trophy_5_140209b.obj',
 		// called when resource is loaded
