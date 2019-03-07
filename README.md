@@ -6,16 +6,17 @@ De jongere bezoekers van de OBA die pas net begonnen zijn met lezen te stimulere
 
 Deze is te printen via de 3D printer aanwezig in de OBA.
 
-- [x] Home screen
-- [x] 3D cube
+- [x] Intro/Home screen
+- [x] Test with 3D cube
 - [x] Coloring and putting text on the cube
 - [x] Getting said text from the API
 - [x] Add a little loading-screen
 - [x] Make it fun to wait
-- [x] Render and color a 3D model of a trophy
-- [ ] Make exporting possible in an instantly ready to print format.
+- [x] Replace cube with a trophy (add colors etc. as well)
+- [x] Make exporting possible in a ready-to-print format (.stl)
+- [ ] Fix the printing proportions (probably a .obj error)
 - [ ] Extruding text so it's print-ready even without texture.
-- [ ] Small SVG animation on frontpage to spice things up.
+- [ ] Small SVG animation on frontpage and final page to spice things up.
 
 
 
