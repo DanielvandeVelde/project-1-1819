@@ -231,15 +231,6 @@ addTexture()
 render();
 }
 
-function test(){
-	let usefulData = {
-		name: "Naam",
-		title: "Titel van boek"
-	}
-	start3d(usefulData)
-}
-test();
-
 //https://codepen.io/danwilson/pen/vKzbgd
 function goConfetti() {
 	var confettiLandDiv = document.createElement('div')
