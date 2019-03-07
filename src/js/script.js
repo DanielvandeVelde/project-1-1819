@@ -1,12 +1,17 @@
 import API from './api/index.js';
 
 (() => {
+console.log("🏆🏆🏆🏆🏆")
 let letsGo = document.getElementById("form");
 letsGo.addEventListener("submit", function(e){
 	e.preventDefault();
 	let bookvalue = document.getElementById("bookfield").value,
 			namevalue = document.getElementById("namefield").value
+
+	let form = document.getElementById("form");
+	form.style.visibility = "hidden";
 	goConfetti();
+
 	search(bookvalue, namevalue);
 });
 })();
@@ -14,7 +19,7 @@ letsGo.addEventListener("submit", function(e){
 function search(searchQuery, championName) {
 async function init(){
 	const api = new API();
-	const stream = await api.createStream("search/" + searchQuery + "&facet=type(book)&librarian=true{2}");
+	const stream = await api.createStream("search/" + searchQuery + "&facet=type(book){2}");
 	stream
 		.pipe(renderToDocument)
 }
@@ -35,20 +40,21 @@ init()
 function start3d(naam = parametertje) {
   function getScene() {
   var scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x111111);
+  scene.background = new THREE.Color(0x666666);
   return scene;
 }
 
 function getCamera() {
   var aspectRatio = window.innerWidth / window.innerHeight;
   var camera = new THREE.PerspectiveCamera(25, aspectRatio, 0.1, 1000);
-  camera.position.set(0, 1, 5);
+  camera.position.set(0, -75, 10);
+	camera.lookAt(new THREE.Vector3(0,0,0));
   return camera;
 }
 
 function getLight(scene) {
   var light = new THREE.PointLight(0xffffff, 1, 0);
-  light.position.set(1, 1, 1);
+  light.position.set(100, -500, 100);
   scene.add(light);
 
   var ambientLight = new THREE.AmbientLight(0x111111);
@@ -108,7 +114,7 @@ function addTexture(name = naam) {
 
   ctx.beginPath();
   ctx.rect(0, 0, 256, 256);
-  ctx.fillStyle = 'gold';
+  ctx.fillStyle = 'saddlebrown';
   ctx.fill();
 
 	ctx.fillStyle = 'white';
@@ -128,9 +134,78 @@ function addTexture(name = naam) {
   // canvas contents will be used for a texture
   var texture = new THREE.Texture(bitmap)
   texture.needsUpdate = true;
-  var material = new THREE.MeshBasicMaterial({ map: texture });
-  var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+	var material = [
+		new THREE.MeshPhongMaterial({
+        color: 0xff0000,
+        emissive: 0x2a0000,
+        shininess: 10,
+        specular: 0xffffff
+    }),
+		new THREE.MeshPhongMaterial({
+        color: 0xff0000,
+        emissive: 0x2a0000,
+        shininess: 10,
+        specular: 0xffffff
+    }),
+		new THREE.MeshPhongMaterial({
+        color: 0xff0000,
+        emissive: 0x2a0000,
+        shininess: 10,
+        specular: 0xffffff
+    }),
+    new THREE.MeshBasicMaterial({ map: texture, transparent: true }),
+		new THREE.MeshPhongMaterial({
+        color: 0xff0000,
+        emissive: 0x2a0000,
+        shininess: 10,
+        specular: 0xffffff
+    }),
+		new THREE.MeshPhongMaterial({
+        color: 0xff0000,
+        emissive: 0x2a0000,
+        shininess: 10,
+        specular: 0xffffff
+    })
+];
+  var geometry = new THREE.BoxGeometry( 3, 3, 2 );
   cube = new THREE.Mesh(geometry, material);
+	var loader = new THREE.OBJLoader();
+
+	// load a resource
+	loader.load(
+		// resource URL
+		'./src/obj/tc_fea Trophy Cup 5/trophy_5_140209b.obj',
+		// called when resource is loaded
+		function ( object ) {
+			object.scale.set( 0.1, 0.1, 0.1 )
+			var shine = new THREE.MeshStandardMaterial( {
+			    color: 0xd28e11,
+					emissive: 0x664303,
+					roughness: 0.25,
+					metalness: 0.25,
+					flatShading: 0,
+					wireframeLinewidth: 1,
+					vertexColors: THREE.NoColors,
+					fog: 0
+			} )
+
+			object.traverse( function ( node ) {
+		    if ( node.isMesh ) node.material = shine;
+		  } );
+
+			scene.add( object );
+		},
+		// called when loading is in progresses
+		function ( xhr ) {
+			console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+		},
+		// called when loading has errors
+		function ( error ) {
+			console.log( 'An error happened. No 🏆 for you.' );
+		}
+	);
+
+	cube.position.z = -1;
   scene.add(cube)
 }
 
@@ -152,6 +227,15 @@ addTexture()
 
 render();
 }
+
+// function test(){
+// 	let usefulData = {
+// 		name: "Naam",
+// 		title: "Titel van boek"
+// 	}
+// 	start3d(usefulData)
+// }
+// test();
 
 //https://codepen.io/danwilson/pen/vKzbgd
 function goConfetti() {
@@ -186,10 +270,7 @@ makeItConfetti();
 
 /*
 
-- Welkom, uitleg?
-- Vragen en dan send
-- Eerst laadscherm
-- Dan alles weghalen voor canvbas
+- Alles weghalen voor canvas?
 	+ Knoppen voor opnieuw en print
 
 */

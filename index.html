@@ -89,7 +89,8 @@
       <div class="confetti"></div>
     </div>
     <main>
-      <h1>Welk boek heb je uitgelezen?</h1>
+      <h1>Jij verdient een troffee!</h1>
+      <p>Hoe heet je en welk boek heb je uitgelezen?</p>
       <form id="form">
         <ul>
           <li>
@@ -100,14 +101,15 @@
           <li>
             <label for="bookfield">Boek</label>
             <input type="text" id="bookfield" name="bookfield" maxlength="20" required/>
-            <span>ISBN of de barcode werkt het best</span>
+            <span>Naam mag maar ISBN of barcode werkt het best</span>
           </li>
-          <li><input type="submit" id="go" value="Wat win ik?" /></li>
+          <li><input type="submit" id="go" value="Ophalen" /></li>
         </ul>
       </form>
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/88/three.min.js"></script>
     <script src="https://threejs.org/examples/js/controls/TrackballControls.js"></script>
+    <script src="src/js/three.js/OBJLoader.js"></script>
     <script type="module" src="src/js/script.js"></script>
   </body>
 </html>

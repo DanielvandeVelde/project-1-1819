@@ -1,19 +1,17 @@
 body {
-  background-color: #fff;
+  background-color: #000;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
 }
 
 main {
   position: relative;
-  z-index: 1;
-  width: 800px;
-  height: 100%;
-  margin-top: -100rem;
+  z-index: 3;
+  margin-top: -200vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,40 +20,64 @@ main {
   animation-delay: 1s;
   animation-duration: 2s;
   animation-fill-mode: forwards;
+  background: #fff url("../img/spinner.svg") no-repeat center center;
+  border-radius: 10px;
+  padding: 50px 50px 25px;
 }
 
 body::before {
+  background-color: #f6f6f6;
   background-image: url("../img/logo.png");
   background-repeat: no-repeat;
   background-position: bottom left;
-  background-size: 100% auto;
+  background-size: 50vw;
   content: "";
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   opacity: 0;
   z-index: -1;
   animation-delay: 0s;
   animation-name: fade-in;
   animation-duration: 2s;
   animation-fill-mode: forwards;
-  background-size: 800px auto;
 }
 
 h1 {
   font-size: 2rem;
+  color: red;
+  font-weight: bold;
+}
+
+h1, p {
   font-family: arial;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 form {
-  background: #fff;
-  border-radius: 2px;
   padding: 20px;
   font-family: Arial;
+  background-color: white;
 }
+
+/*
+form::before {
+ border-image-source: url(../img/border.png);
+ border-image-slice: 0 fill;
+ border-image-repeat: stretch;
+ height: 1000px;
+ display: block;
+ position: absolute;
+ top: -50vh;
+ margin: 0 auto;
+ width: 250px;
+ content: "";
+ z-index: -1;
+}
+*/
+
 form li {
   display: block;
   padding: 9px;
@@ -104,13 +126,13 @@ form li > span {
 }
 
 form input[type="submit"] {
-  background: black;
+  background: #000 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAMBAMAAACpRTGTAAAAA3NCSVQICAjb4U/gAAAAKlBMVEX///////////////////////////////////////////////////////9q+00tAAAADnRSTlMAESJEVWZ3maq7zN3u/3bG7fkAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAA2SURBVAiZY0hkAIE7ASDy7k0DEHn3ugKIvHtMAETe3QImr4NIoPzdu7cDQLIgfXebQLoWgwgABAEcp+sJB4MAAAAASUVORK5CYII=) right 10px center no-repeat;
   border: none;
-  padding: 10px 20px 10px 20px;
+  padding: 10px 25px 10px 10px;
   color: white;
 }
 form input[type="submit"]:hover {
-  background: red;
+  background-color: red;
   color: #fff;
 }
 
@@ -127,7 +149,7 @@ form input[type="submit"]:hover {
 
 @keyframes slide-in {
   from {
-    margin-top: -100rem;
+    margin-top: -200vh;
   }
   to {
     margin-top: 0;
@@ -138,7 +160,8 @@ canvas {
   position: absolute;
   height: 100%;
   width: 100%;
-  z-index: 3;
+  z-index: 4;
+  background-color: #f6f6f6;
 }
 
 
@@ -153,7 +176,7 @@ canvas {
 
 confetti-land {
   position: absolute;
-  z-index: 5;
+  z-index: 2;
   overflow: hidden;
 }
 
