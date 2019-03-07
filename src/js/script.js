@@ -1,4 +1,5 @@
 import API from './api/index.js';
+var group = new THREE.Object3D();
 
 (() => {
 console.log("🏆🏆🏆🏆🏆")
@@ -40,14 +41,14 @@ init()
 function start3d(naam = parametertje) {
   function getScene() {
   var scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x666666);
+  scene.background = new THREE.Color(0xf6f6f6);
   return scene;
 }
 
 function getCamera() {
   var aspectRatio = window.innerWidth / window.innerHeight;
   var camera = new THREE.PerspectiveCamera(25, aspectRatio, 0.1, 1000);
-  camera.position.set(0, -75, 10);
+  camera.position.set(0, -25, 15);
 	camera.lookAt(new THREE.Vector3(0,0,0));
   return camera;
 }
@@ -110,25 +111,26 @@ function addTexture(name = naam) {
   //create image
   var bitmap = createRetinaCanvas(256, 256);
   var ctx = bitmap.getContext('2d', {antialias: false});
-  ctx.font = 'Bold 20px Arial';
+  ctx.font = 'Bold 24px Arial';
 
   ctx.beginPath();
   ctx.rect(0, 0, 256, 256);
   ctx.fillStyle = 'saddlebrown';
   ctx.fill();
 
-	ctx.fillStyle = 'white';
-  var textWidth = ctx.measureText(texttitle).width;
-  ctx.fillText(texttitle , 128 - (textWidth / 2), 96);
+	ctx.fillStyle = 'goldenrod';
+  var titlewidth = ctx.measureText(texttitle).width;
+	var nameWidth = ctx.measureText(textname).width;
+
+  ctx.fillText(texttitle , 128 - (titlewidth / 2), 96);
   ctx.strokeStyle = 'black';
-  ctx.strokeText(texttitle, 128 -(textWidth / 2), 96);
+  ctx.strokeText(texttitle, 128 -(titlewidth / 2), 96);
   ctx.textAlign = "center";
 
-	ctx.fillStyle = 'white';
-	var textWidth = ctx.measureText(textname).width;
-	ctx.fillText(textname , 184 - (textWidth / 2), 192);
+	ctx.fillStyle = 'goldenrod';
+	ctx.fillText(textname , 128 - (nameWidth / 2), 192);
 	ctx.strokeStyle = 'black';
-	ctx.strokeText(textname, 184 -(textWidth / 2), 192);
+	ctx.strokeText(textname, 128 -(nameWidth / 2), 192);
 	ctx.textAlign = "center";
 
   // canvas contents will be used for a texture
@@ -167,7 +169,7 @@ function addTexture(name = naam) {
         specular: 0xffffff
     })
 ];
-  var geometry = new THREE.BoxGeometry( 3, 3, 2 );
+  var geometry = new THREE.BoxGeometry( 3.5, 3.5, 2 );
   cube = new THREE.Mesh(geometry, material);
 	var loader = new THREE.OBJLoader();
 
@@ -193,7 +195,12 @@ function addTexture(name = naam) {
 		    if ( node.isMesh ) node.material = shine;
 		  } );
 
-			scene.add( object );
+			cube.position.z = -3;
+			object.position.z = -2;
+			group.add( cube );
+			group.add( object );
+		  scene.add(group)
+			forCanvas();
 		},
 		// called when loading is in progresses
 		function ( xhr ) {
@@ -204,9 +211,6 @@ function addTexture(name = naam) {
 			console.log( 'An error happened. No 🏆 for you.' );
 		}
 	);
-
-	cube.position.z = -1;
-  scene.add(cube)
 }
 
 // Render loop
@@ -224,21 +228,30 @@ var controls = getControls(camera, renderer);
 var cube;
 
 addTexture()
-
 render();
 }
 
-// function test(){
-// 	let usefulData = {
-// 		name: "Naam",
-// 		title: "Titel van boek"
-// 	}
-// 	start3d(usefulData)
-// }
-// test();
+function test(){
+	let usefulData = {
+		name: "Naam",
+		title: "Titel van boek"
+	}
+	start3d(usefulData)
+}
+test();
 
 //https://codepen.io/danwilson/pen/vKzbgd
 function goConfetti() {
+	var confettiLandDiv = document.createElement('div')
+	confettiLandDiv.className = "confetti-land";
+
+	for (var i=0; i<80;i++) {
+		var confettiDiv = document.createElement('div')
+		confettiDiv.className = "confetti";
+		confettiLandDiv.appendChild(confettiDiv)
+	}
+	document.body.appendChild(confettiLandDiv)
+
 	var confettiPlayers = [];
 function makeItConfetti() {
   var confetti = document.querySelectorAll('.confetti');
@@ -268,9 +281,42 @@ function makeItConfetti() {
 makeItConfetti();
 }
 
-/*
+function forCanvas(){
+	var buttonHolder = document.createElement('div')
+	var printButton = document.createElement('button')
+	var restartButton = document.createElement('button')
+	buttonHolder.setAttribute("class", "buttonHolder")
+	printButton.setAttribute("class", "printButton");
+	restartButton.setAttribute("class", "restartButton")
+	printButton.appendChild(document.createTextNode('Print'))
+	restartButton.appendChild(document.createTextNode('Restart'))
+	buttonHolder.appendChild(restartButton)
+	buttonHolder.appendChild(printButton)
+	document.body.appendChild(buttonHolder)
+	document.getElementsByClassName("printButton")[0].addEventListener('click', print);
+	document.getElementsByClassName("restartButton")[0].addEventListener('click', reload);
+}
 
-- Alles weghalen voor canvas?
-	+ Knoppen voor opnieuw en print
+function print(){
+	var exporter = new THREE.STLExporter();
+	var result = exporter.parse(group);
+	saveString( result, 'trophy.stl')
+}
 
-*/
+function saveString( text, filename ) {
+	save( new Blob( [ text ], { type: 'text/plain' } ), filename );
+}
+
+var link = document.createElement( 'a' );
+			link.style.display = 'none';
+			document.body.appendChild( link );
+
+function save( blob, filename ) {
+				link.href = URL.createObjectURL( blob );
+				link.download = filename;
+				link.click();
+			}
+
+function reload(){
+	location.reload();
+}

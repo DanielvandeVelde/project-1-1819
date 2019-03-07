@@ -62,22 +62,6 @@ form {
   background-color: white;
 }
 
-/*
-form::before {
- border-image-source: url(../img/border.png);
- border-image-slice: 0 fill;
- border-image-repeat: stretch;
- height: 1000px;
- display: block;
- position: absolute;
- top: -50vh;
- margin: 0 auto;
- width: 250px;
- content: "";
- z-index: -1;
-}
-*/
-
 form li {
   display: block;
   padding: 9px;
@@ -164,14 +148,39 @@ canvas {
   background-color: #f6f6f6;
 }
 
+.buttonHolder {
+  position: absolute;
+  bottom: 10%;
+  z-index: 5;
+}
 
+.buttonHolder button {
+  margin: 0 1rem;
+}
+
+.printButton {
+  background: #000 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAMBAMAAACpRTGTAAAAA3NCSVQICAjb4U/gAAAAKlBMVEX///////////////////////////////////////////////////////9q+00tAAAADnRSTlMAESJEVWZ3maq7zN3u/3bG7fkAAAAJcEhZcwAACxIAAAsSAdLdfvwAAAA2SURBVAiZY0hkAIE7ASDy7k0DEHn3ugKIvHtMAETe3QImr4NIoPzdu7cDQLIgfXebQLoWgwgABAEcp+sJB4MAAAAASUVORK5CYII=) right 10px center no-repeat;
+  border: none;
+  padding: 10px 25px 10px 10px;
+  color: white;
+}
+
+.restartButton {
+  background: #000 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAEG0lEQVQ4EQEQBO/7APLy8g4AAAAAAAAAAAAAAAD4+Pgw/Pz8mf39/dv9/f39/f39/f39/d/8/Pyf+Pj4OAAAAAAAAAAAAAAAAAAAAAAA+vr6bPv7+5Hu7u4M/Pz8mf7+/v/////////////////////////////////+/v7//Pz8pfT09A4AAAAAAAAAAAD7+/t4//////39/e///////v7+//z8/Kf5+flI9vb2GvX19Rj5+flE/Pz8n/7+/v3//////f39y/X19Q4AAAAAAPz8/IP////////////////5+flmAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+fn5OP7+/un//////Pz8qwAAAAAA/Pz8j/7+/v/+/v7//v7+//7+/u35+flAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+Pj4NP7+/vv+/v7/+fn5QAIAAAAOAAAAAAAAAP7////Q/v7+qAAAABLAwMACAAAAAAAAAAAAAAAAAAAAAAAAAAAICAjM/v7+mgAAAAADAwNpAPv7+0z5+flI7+/vEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4+Pg4/v7+//39/esAAAAAAO3t7Qzk5OQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOvr6wr+/v7//v7+/wT8/PzPAgICLggICBsAAADoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/f39/gAAAAABAQEAAgEBARABAQECBAQELAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPDw8qAQEBAP7+/vAC////wAAAAAADAwNZAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUFBVsAAAAA////wAD4+Pg4/v7+//7+/vv5+fk2AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4+Pgq/v7+9/7+/v/5+flKAAAAAAD8/Pyl/v7+//7+/un5+fk0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+Pj4Kv7+/uH+/v7//Pz8t8LCwgIAAAAAAPT09A79/f3N/v7+//7+/vn8/PyV+Pj4Nunp6Qjm5uYI9/f3Mvz8/I3+/v73/v7+//39/df29vYUAAAAAAAAAAAAAAAAAPX19Q78/Pyr/v7+//7+/v/+/v7//v7+//7+/v////////////7+/v/8/Py39vb2FAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD5+flC/Pz8q/39/e3///////////39/e/8/Pyx+fn5SsPDwwIAAAAAAAAAAAAAAAA0fNGds0bpIwAAAABJRU5ErkJggg==') right 10px center no-repeat;
+  border: none;
+  padding: 10px 35px 10px 10px;
+  color: white;
+}
+
+.buttonHolder button:hover {
+  background-color: red;
+  color: #fff;
+}
 
 
 /****************************************************\
 |*****!!! You are now entering confetti-land !!!*****|
 \****************************************************/
-
-
 
 
 confetti-land {
