@@ -53,7 +53,7 @@ body::after {
   left: 70vw;
   opacity: 0;
   animation-name: fall;
-  animation-delay: 4s;
+  animation-delay: 10s;
   animation-duration: 3s;
   animation-fill-mode: forwards;
   animation-timing-function: ease;
