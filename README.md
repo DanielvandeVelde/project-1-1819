@@ -36,8 +36,7 @@ I recommend forking this repository and using bash to git clone it to your machi
 ## 4. API
 
 The [Openbare Bibliotheek van Amsterdam or Amsterdam Public LIbrary (oba)](https://www.oba.nl/oba/english.html) has it's own API in which you can search for different books, magazines, CDs, audiobooks etc.  
-I use this API to turn the entered ISBN/Barcodes/
-values in the 'boek' inputfield into a search for the right booktitle.
+I use this API to turn the entered ISBN/Barcodes/values in the 'boek' inputfield into a search for the right booktitle.
 
 ## 5. TODO
 
@@ -51,7 +50,9 @@ values in the 'boek' inputfield into a search for the right booktitle.
 - [x] Make exporting possible in a ready-to-print format (.stl)
 - [x] Fix the printing proportions (probably a .obj error)
 - [x] Extruding text so it's print-ready even without texture.
+- [ ] Apparently I broke the ISBN-search somehwere along the way
 - [ ] Test the printing process, there are probably some ~~minor~~ major flaws.
+- [ ] Speed up the process by creating objects and importing them instead of letter the browser create them
 
 ## Sources
 [OBA-API](https://zoeken.oba.nl/?uilang=en)   

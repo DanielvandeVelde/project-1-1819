@@ -21,13 +21,14 @@ function search(searchQuery, championName) {
   async function init() {
     const api = new API();
     const stream = await api.createStream(
-      "search/" + searchQuery + "&facet=type(book){2}"
+      "search/" + searchQuery + "&facet=type(book){1}"
     );
     stream.pipe(renderToDocument);
   }
 
   function renderToDocument(stream) {
-    let oldTitle = stream[0].title.full;
+    console.log(stream);
+    let oldTitle = stream.title.full;
     let newTitle = oldTitle.split("/");
 
 		var today = new Date();
