@@ -27,8 +27,7 @@ function search(searchQuery, championName) {
   }
 
   function renderToDocument(stream) {
-    console.log(stream);
-    let oldTitle = stream.title.full;
+    let oldTitle = stream[0].title.full;
     let newTitle = oldTitle.split("/");
 
 		var today = new Date();
