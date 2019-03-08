@@ -68,7 +68,10 @@ h1 {
 
 h1, p {
   font-family: arial;
-  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  background-color: white;
+  text-align: center;
+  line-height: 1.5rem;
 }
 
 form {
