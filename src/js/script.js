@@ -21,7 +21,7 @@ function search(searchQuery, championName) {
   async function init() {
     const api = new API();
     const stream = await api.createStream(
-      "search/" + searchQuery + "&facet=type(book){1}"
+      "search/" + searchQuery + "&facet=type(book){2}"
     );
     stream.pipe(renderToDocument);
   }
