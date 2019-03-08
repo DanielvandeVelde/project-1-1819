@@ -51,8 +51,9 @@ I use this API to turn the entered ISBN/Barcodes/values in the 'boek' inputfield
 - [x] Fix the printing proportions (probably a .obj error)
 - [x] Extruding text so it's print-ready even without texture.
 - [ ] ISBN/Barcode search is broken due to a .map function in the OBA-Wrapper
+- [ ] Set a maximum width to the letters on the trophy. There's some amazing overflow now.
 - [ ] Test the printing process, there are probably some ~~minor~~ major flaws.
-- [ ] Speed up the process by creating objects and importing them instead of letter the browser create them
+- [ ] Speed up the rendering process by creating objects and importing them instead of letting the browser create them.
 
 ## Sources
 [OBA-API](https://zoeken.oba.nl/?uilang=en)   

@@ -7,11 +7,12 @@ var group = new THREE.Object3D();
   letsGo.addEventListener("submit", function(e) {
     e.preventDefault();
     let bookvalue = document.getElementById("bookfield").value,
-      namevalue = document.getElementById("namefield").value;
+    namevalue = document.getElementById("namefield").value;
 
     let form = document.getElementById("form");
+    let para = document.getElementById("para");
+    para.style.visibility = "hidden";
     form.style.visibility = "hidden";
-    goConfetti();
 
     search(bookvalue, namevalue);
   });
@@ -49,6 +50,7 @@ function search(searchQuery, championName) {
 			today: today
     };
 
+    goConfetti();
     start3d(usefulData);
   }
   init();
